@@ -88,6 +88,11 @@ data:
     # from the internet to cloudflared, run `cloudflared tunnel route dns <tunnel> <hostname>`.
     # E.g. `cloudflared tunnel route dns example-tunnel tunnel.example.com`.
     ingress:
+    #  - hostname: azure.widgetcorp.tech
+    #    service: rdp://localhost:3389
+    #  - service: http_status:404
+    # Catch-all rule, which responds with 404 if traffic doesn't match any of
+    # the earlier rules
     # The first rule proxies traffic to the httpbin sample Service defined in app.yaml
     - hostname: tunnel.example.com
       service: http://web-service:80
